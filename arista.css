@@ -1,0 +1,106 @@
+.container {
+    background-color: rgb(8, 4, 22);
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgba(68, 68, 143, 0.5);
+    margin: 30px;
+
+    font-family: "12", 'Courier New', Courier, monospace;
+
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    gap: 60px;
+
+    animation: slide-top linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+
+    will-change: transform, opacity, filter;
+
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+}
+
+.container.visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.container h1 {
+    color: rgb(255, 255, 255);
+}
+.container h2{
+    color: gray;
+}
+
+.container p {
+    color: rgb(96, 176, 255);
+    font-size: 50px;
+}
+
+.estiloBoton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: cornflowerblue;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.estiloBoton:hover {
+    transform: scale(1.05);
+    background-color: rgb(70, 130, 220);
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px 15px;
+        padding: 15px;
+        animation-range: entry 5% cover 20%;
+    }
+
+    .container h1 {
+        font-size: 1.5rem;
+    }
+
+    .container p {
+        font-size: 0.9rem;
+    }
+}
+
+@supports not (animation-timeline: view()) {
+    .container {
+        animation: none;
+    }
+}
+
+@keyframes slide-top {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+.imagen img {
+    display: block;
+}
+
+.texto {
+    text-align: center;
+}
+
+
+

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="arista.css">
+    <title> Te amo Juanita</title>
+    <link rel="icon" type="image/jng" href="tetrio.jpg">
+    <style>
+        body {
+            background-color: rgb(4, 6, 14);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body>.container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .container img {
+            transition: transform 0.5s ease;
+            border-radius: 8px;
+        }
+
+        .container:hover img {
+            transform: scale(1.02);
+        }
+        
+
+        .audio-controls {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 15px;
+            background: rgba(20, 15, 45, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(68, 68, 143, 0.3);
+            border: 1px solid rgba(100, 149, 237, 0.2);
+        }
+        
+        .audio-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: rgb(96, 176, 255);
+            font-size: 0.9em;
+        }
+        
+        .audio-icon {
+            margin-right: 10px;
+            color: cornflowerblue;
+            font-size: 1.2em;
+        }
+        
+        .progress-container {
+            margin: 15px 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(100, 149, 237, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, cornflowerblue, rgb(96, 176, 255));
+            width: 0%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .audio-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .audio-btn {
+            background: rgba(100, 149, 237, 0.2);
+            border: none;
+            color: rgb(96, 176, 255);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+        }
+        
+        .audio-btn:hover {
+            background: cornflowerblue;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(100, 149, 237, 0.5);
+        }
+        
+        .audio-btn.play-pause {
+            background: cornflowerblue;
+            color: white;
+            width: 50px;
+            height: 50px;
+            font-size: 1.3em;
+        }
+        
+        .audio-btn.play-pause:hover {
+            background: rgb(70, 130, 220);
+            box-shadow: 0 0 20px rgba(100, 149, 237, 0.8);
+        }
+        
+        .volume-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .volume-icon {
+            color: rgb(96, 176, 255);
+            font-size: 1em;
+        }
+        
+        .volume-slider {
+            width: 100px;
+            height: 4px;
+            background: rgba(100, 149, 237, 0.2);
+            border-radius: 2px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: cornflowerblue;
+            cursor: pointer;
+        }
+        
+        .volume-slider::-moz-range-thumb {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: cornflowerblue;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .hidden-audio {
+            display: none;
+        }
+        
+        .audio-title {
+            margin-bottom: 10px;
+            color: white;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="imagen">
+        <img width="50%"
+        src="https://upload.wikimedia.org/wikipedia/commons/1/11/Fisch1.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20170212170131"
+        alt="no image found">
+    </div>
+
+    <div class="texto">
+        <h1>Sune</h1>
+        <h2>algorithm</h2>
+        <p>(R U R') U (R U2 R')</p>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="imagen">
+        <img width="50%" style="transform: rotate(90deg)" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Fisch2.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20170212170131"
+        alt="no image found">
+    </div>
+
+    <div class="texto">
+        <h1>Antisune</h1>
+        <h2>algorithm</h2>
+        <p>(R' U' R) U' (R' U2 R)</p>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="imagen">
+        <img width="50%" style="transform: rotate(90deg)"  
+        src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Auto.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20170212170136"
+        alt="no image found">
+    </div>
+
+    <div class="texto">
+        <h1>Carrito</h1>
+        <h2>algorithm</h2>
+        <p>F (R U R´ U´)X3 F´</p>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="imagen">
+        <img width="50%"   
+        src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Schwimmer.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20170212170134"
+        alt="no image found">
+    </div>
+
+    <div class="texto">
+        <h1>idk</h1>
+        <h2>algorithm</h2>
+        <p>(R U2) (R2 U') (R2 U') (R2 U2 R)</p>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="imagen">
+        <img width="50%"   
+        src="https://upload.wikimedia.org/wikipedia/commons/8/83/Kopf.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20170212170134"
+        alt="no image found">
+    </div>
+
+    <div class="texto">
+        <h1>Hongo</h1>
+        <h2>algorithm</h2>
+        <p>R2 D R´ U2 R D´ R´ U2 R´</p>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="imagen">
+        <img width="50%"   
+        src="https://upload.wikimedia.org/wikipedia/commons/7/71/Cham%C3%A4leon.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20170212170137"
+        alt="no image found">
+    </div>
+
+    <div class="texto">
+        <h1>Chameleon</h1>
+        <h2>algorithm</h2>
+        <p>(r U R' U') (r' F R F')</p>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="imagen">
+        <img width="50%"   
+        src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Fliege.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled&_=20170212170132"
+        alt="no image found">
+    </div>
+
+    <div class="texto">
+        <h1>Rombo</h1>
+        <h2>algorithm</h2>
+        <p>F R´F´ r U R U´ r´</p>
+    </div>
+
+</div>
+
+    <script>
+        if (!CSS.supports('animation-timeline', 'view()')) {
+            console.log('Usando fallback JavaScript para animación de scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.container').forEach(container => {
+                observer.observe(container);
+            });
+        } else {
+            console.log('Usando CSS Scroll Animation (animation-timeline)');
+        }
+
+        document.querySelectorAll('.estiloBoton').forEach(button => {
+            button.addEventListener('click', function (e) {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
